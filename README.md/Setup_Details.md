@@ -1,122 +1,47 @@
-## Deployment
+
+### Pre-requisites Before Creating Infrastructure Setup in DigitalOcean
+ 
+
+1. Create a Digital Ocean Token .
+       - Set this variables in terraform cloud at the Organization level
+
+2. Create a Reserved IP. 
+3. Create an SSH key and Pass the ID into the code.
+       - Perform this step inside the 01-network_setup directory.
+
 
 We have already parameterized all the values. Any values that need to be passed externally should be set in the corresponding section within the env folder.
 
 
-First, create an access key and secret key, and generate a token from DigitalOcean.
+### After Installation Steps : 
 
-**1. To store terraform state in Digital Ocean Space :**
+1. In Production Cluster
+       - To create the secret for Mimir authentication, use the following command:
 
-#### Navigate to the tfstate directory inside 00-global directory:
+  **"kubectl create secret generic kubepromsecret --from-literal=username=admin --from-literal=password='mimir@123' -n monitoring"**
 
+2. In Development Cluster 
+       - Apply the probe.yaml to check the application health status. 
+**" kubectl apply -f probe.yaml "**
 
-  - cd env/00-global/tfstate
-
-#### To apply the configuration:
-
+3. Add Custom Dashboard for Application Logs in Grafana:
  
-       - export TF_VAR_digitalocean_token=
+       - Application Logs Dashboard (ACC):
 
-       - export TF_VAR_access_id=
+              - Click on New Dashboard.
+              - Go to Import Dashboard.
+              - Add the JSON file in the Import via Dashboard JSON Model.
 
-       - export TF_VAR_secret_key=
+       - Application Logs Dashboard (PROD):
 
-       - terraform init 
+              - Click on New Dashboard.
+              - Go to Import Dashboard.
+              - Add the JSON file in the Import via Dashboard JSON Model.
+              
+       - Application Logs Dashboard (TST):
 
-       - terraform plan 
+              - Click on New Dashboard.
+              - Go to Import Dashboard.
+              - Add the JSON file in the Import via Dashboard JSON Model.
 
-       - terraform apply 
- 
- - Save the output values.
-
- #### To destroy the resources:
-
-      - terraform destroy 
-
-
-**2. To deploy network-setup - vpc, gateway_droplete :**
-
-  *This module creates a vpc, gateway_droplete.* 
-
-#### Navigate to the 01-network-setup directory inside env directory:
-
- - cd env/01-network-setup/
-
-#### To apply the configuration:
-
-       - export TF_VAR_digitalocean_token=
-
-       - export TF_VAR_access_id=
-
-       - export TF_VAR_secret_key=
-
-       - terraform init -backend-config="access_key=" - backend-config="secret_key="
-
-       - terraform plan
-
-       - terraform apply
-
-- Save the output values.
-
- #### To destroy the resources:
-
-       - terraform destroy 
-
-**3. To deploy dev (non-prod) - doks, doks-bootstrap ( cert-manager, do-registry-set, static-route-operator, nginx-ingress-controller and monitoring) :**
-
-  *This module creates a doks cluster, doks-bootstrap (nginx-ingress-controller, cert-manager, do-registry-set, static-route-operator and monitoring)* 
-
-#### Navigate to the 02-dev directory inside env directory:
-
- - cd env/02-dev/
-
-#### To apply the configuration:
-
-       - export TF_VAR_digitalocean_token=
-
-       - export TF_VAR_access_id=
-
-       - export TF_VAR_secret_key=
-
-       - terraform init -backend-config="access_key=" -backend-config="secret_key="  
-
-       - terraform plan
-
-       - terraform apply
-
-- Save the output values.
-
- #### To destroy the resources:
-
-       - terraform destroy 
-
-
-**4. To deploy prod env - doks, doks-bootstrap ( cert-manager, do-registry-set, static-route-operator, nginx-ingress-controller and monitoring) :**
-
-  *This module creates a doks cluster, doks-bootstrap (nginx-ingress-controller, cert-manager, do-registry-set, static-route-operator and monitoring)* 
-
-#### Navigate to the 03-prod directory inside env directory:
-
- - cd env/03-prod/
-
-#### To apply the configuration:
-
-       - export TF_VAR_digitalocean_token=
-
-       - export TF_VAR_access_id=
-
-       - export TF_VAR_secret_key=
-
-       - terraform init -backend-config="access_key=" -backend-config="secret_key="   
-
-       - terraform plan
-
-       - terraform apply
-
-- Save the output values.
-
- #### To destroy the resources:
-
-       - terraform destroy 
-
-
+Note: You can find these JSON files and probe.yaml in the files subfolder within the Readme_Doc folder.

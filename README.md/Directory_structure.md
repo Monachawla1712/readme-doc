@@ -10,13 +10,11 @@
        
        -  **env Folder Structure**:
 
-              1. 00-global: This folder is used for storing the Terraform state of the infrastructure in DigitalOcean Spaces.
+              1. 01-network: This folder contains the code for creating the VPC network and the gateway droplet.
 
-              2. 01-network: This folder contains the code for creating the VPC network and the gateway droplet.
+              2. 02-dev: This folder is dedicated to creating the development environment.
 
-              3. 02-dev: This folder is dedicated to creating the development environment.
-
-              4. 03-prod: This folder is dedicated to creating the production environment.
+              3. 03-prod: This folder is dedicated to creating the production environment.
 
        
        - **modules Folder Structure** :
@@ -25,9 +23,7 @@
               
               2. doks-bootstrap - Contains all necessary resources for creating addons like cert-manager, ingress-nginx controller, DigitalOcean registry integration, static-route-operator, and monitoring (Prometheus, Grafana, Loki, and Mimir).
 
-              3. tfstate - Contains resources for creating DigitalOcean Spaces and managing the remote state file.
-
-              4. vpc - Contains resources for creating the VPC network and gateway droplet.
+              3. vpc - Contains resources for creating the VPC network and gateway droplet.
        
 ##  Directory Structure
 ### Major Folders 
@@ -43,7 +39,6 @@
 
 ```
 env
-├── 00-global
 ├── 01-network_setup
 ├── 02-dev
 ├── 03-prod
@@ -57,7 +52,6 @@ modules
 │       ├── monitoring
 │       ├── nginx-ingress-controller
 │       └── static-route-operator
-├── tfstate
 └── vpc
 
 ```
@@ -67,10 +61,6 @@ modules
 ```
 
 env                   
-├── global
-│   ├── main.tf
-│   ├── outputs.tf
-│   └── variables.tf
 ├── network
 │   ├── backend.tf
 │   ├── main.tf
@@ -93,9 +83,6 @@ env
 │   ├── outputs.tf
 │   ├── variables.tf
 │   └── versions.tf
-├── diagrams
-│   └── architecture.png
-└── README.md                 # This README file
 
 modules
 ├── doks
@@ -141,12 +128,6 @@ modules
 │           ├── main.tf
 │           ├── variables.tf
 │           └── versions.tf
-├── tfstate
-│   ├── main.tf
-│   ├── outputs.tf
-│   ├── providers.tf
-│   ├── variables.tf
-│   └── versions.tf
 └── vpc
     ├── gateway.tf
     ├── main.tf

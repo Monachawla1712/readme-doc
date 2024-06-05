@@ -1,0 +1,30 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Probe
+metadata:
+  name: arx-probe
+  namespace: monitoring
+  labels:
+    release: prometheus-operator
+spec:
+  prober:
+    url: blackbox-exporter-prometheus-blackbox-exporter:9115
+  module: http_2xx
+  targets:
+    staticConfig:
+      static:
+        - https://tst-admin.arx-dev.com/
+        - https://acc-admin.arx-dev.com/
+        - https://admin.arx-dev.com/
+        - https://tst-bffe.arx-dev.com/api/health
+        - https://acc-bffe.arx-dev.com/api/health
+        - https://bffe.arx-dev.com/api/health
+        - https://tst-common-data.arx-dev.com/common-data-service/health
+        - https://tst-energy.arx-dev.com/energy-service/health
+        - https://tst-residential.arx-dev.com/residential-service/health
+        - https://tst-auth.arx-dev.com/auth-service/health
+        - https://tst-cms.arx-dev.com/cms-service/health
+        - https://acc-common-data.arx-dev.com/common-data-service/health
+        - https://acc-energy.arx-dev.com/energy-service/health
+        - https://acc-residential.arx-dev.com/residential-service/health
+        - https://acc-auth.arx-dev.com/auth-service/health
+        - https://acc-cms.arx-dev.com/cms-service/health
