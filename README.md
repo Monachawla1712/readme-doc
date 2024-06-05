@@ -1,12 +1,12 @@
-## Deploying Maas Dev DOKS 
+## Deploying Maas Dev Project 
 
-This document provides a comprehensive guide for deploying a DOKS (DigitalOcean Kubernetes) Cluster, including provisioning the network (VPC), gateway droplet, nodes, and essential addons such as bootstrap (including monitoring with Prometheus, Loki, Grafana, and Mimir), cert-manager, do-registry, static route operator, and ingress Nginx controller.
+This guide provides a streamlined approach to deploying a DOKS (DigitalOcean Kubernetes) Cluster and associated components using Terraform Cloud. It covers the provisioning of essential resources such as the network (VPC), gateway droplet, nodes, and crucial addons including Prometheus, Loki, Grafana, Mimir, cert-manager, do-registry, static route operator, and ingress Nginx controller.
 
 All these components are created seamlessly through Terraform Cloud by pushing code to a GitHub repository, where Terraform Cloud workspaces will automatically trigger the deployment process.
 
-
 #### Quickstart
-The following steps describe how to deploy a Kubernetes cluster using Terraform Cloud.
+
+To get started, sign up for a Terraform Cloud account and a DigitalOcean Cloud account if you haven't already. Then, simply follow the steps outlined in this guide to initiate the deployment process seamlessly. 
 
 ### Requirements and Prerequisites
 
@@ -19,6 +19,14 @@ The following steps describe how to deploy a Kubernetes cluster using Terraform 
 
 
 **Note: All values have already been parameterized. Any values that need to be passed externally should be set in the corresponding section within the env folder.**
+
+
+### Before and After installation Steps: 
+
+Refer to the document Setup_Details for necessary steps before and after deploying the components via Terraform Cloud.
+
+Refer this doc : [Setup_Details](/documents/README.md/Setup_Details.md) 
+
 
 ##  Below Deployment is Orchestrated for Terraform Cloud Execution 
 Refer Terraform cloud : [Terraform cloud Execution Steps](/documents/README.md/Terraform-execution.md)
