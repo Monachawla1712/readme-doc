@@ -1,6 +1,6 @@
 ## Deploying Maas Dev Project 
 
-This guide provides a streamlined approach to deploying a DOKS (DigitalOcean Kubernetes) Cluster and associated components using Terraform Cloud. It covers the provisioning of essential resources such as the network (VPC), gateway droplet, nodes, and crucial addons including Prometheus, Loki, Grafana, Mimir, cert-manager, do-registry, static route operator, and ingress Nginx controller.
+This document provides a comprehensive guide for deploying a MaasDev infrastructure over DigitalOcean kubernetes Cluster, It includes the setup process for key components like network (VPC), gateway droplet, Doks (k8s cluster) and the bootstrapping of k8s addons such as monitoring (including Prometheus, Loki, Grafana, and Mimir), ingress Nginx controller, cert-manager, do-registry and static route operator.
 
 All these components are created seamlessly through Terraform Cloud by pushing code to a GitHub repository, where Terraform Cloud workspaces will automatically trigger the deployment process.
 
@@ -25,11 +25,11 @@ To get started, sign up for a Terraform Cloud account and a DigitalOcean Cloud a
 
 Refer to the document Setup_Details for necessary steps before and after deploying the components via Terraform Cloud.
 
-Refer this doc : [Setup_Details](/documents/README.md/Setup_Details.md) 
+Refer this doc : [Setup_Details](/documents//Setup_Details.md) 
 
 
 ##  Below Deployment is Orchestrated for Terraform Cloud Execution 
-Refer Terraform cloud : [Terraform cloud Execution Steps](/documents/README.md/Terraform-execution.md)
+Refer Terraform cloud : [Terraform cloud Execution Steps](/documents/Terraform-execution.md)
 
  ### Deploying the 01-network_setup
 
@@ -45,7 +45,7 @@ This setup will create a VPC and a gateway droplet, utilizing the VPC module in 
 
 3. **Workspace Setup:**
 
-    - For details on setting up workspaces in Terraform Cloud, refer to the  [Terraform cloud Execution Steps](/documents/README.md/Terraform-execution.md)
+    - For details on setting up workspaces in Terraform Cloud, refer to the  [Terraform cloud Execution Steps](/documents/Terraform-execution.md)
 
 
 
@@ -63,7 +63,7 @@ This module creates a DOKS cluster and deploys the necessary components such as 
 
 3. **Workspace Setup:**
 
-    - For details on setting up workspaces in Terraform Cloud, refer to the  [Terraform cloud Execution Steps](/documents/README.md/Terraform-execution.md)
+    - For details on setting up workspaces in Terraform Cloud, refer to the  [Terraform cloud Execution Steps](/documents/Terraform-execution.md)
 
 
 ### Deploying the Prod environment:
@@ -80,7 +80,7 @@ This module creates a DOKS cluster and deploys the necessary components such as 
 
 3. **Workspace Setup:**
 
-    - For details on setting up workspaces in Terraform Cloud, refer to the  [Terraform cloud Execution Steps](/documents/README.md/Terraform-execution.md)
+    - For details on setting up workspaces in Terraform Cloud, refer to the  [Terraform cloud Execution Steps](/documents/Terraform-execution.md)
 
 
 ### Monitoring with DOKS-Bootstrap Module
@@ -107,10 +107,10 @@ You can find its configuration in the doks-bootstrap folder under addons/static-
 
 ### Documents
 
-- [Architecture Diagrams](/documents/README.md/Architecture.md)
-- [Setup_Details](/documents/README.md/Setup_Details.md)  
-- [Terraform cloud Execution Steps](/documents/README.md/Terraform-execution.md)
-- [Directory Structure](/documents/README.md/Directory_structure.md)
+- [Architecture Diagrams](/documents/Architecture.md)
+- [Setup_Details](/documents/Setup_Details.md)  
+- [Terraform cloud Execution Steps](/documents/Terraform-execution.md)
+- [Directory Structure](/documents/Directory_structure.md)
 
 
 
