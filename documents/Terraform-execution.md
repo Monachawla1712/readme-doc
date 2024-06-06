@@ -56,24 +56,8 @@
     - Under the Variable Set Scope, choose to apply it to specific projects and workspaces.
     - Select the project and workspaces where you want to use this variable.
 
-### Syncing Local Terraform State with Terraform Cloud:
 
-1. Login to Terraform via Terminal:
-    - Run terraform login and follow the prompts.
-    - Enter yes and provide the API token generated from Terraform Cloud.
-
-2. Update Backend Configuration:
-
-    - Modify your backend.tf file to include a cloud block with your organization and workspace names.
-
-3. Initialize Terraform:
-
-    - Run **terraform init** to sync your local state with Terraform Cloud.
-
-
-
-
-### Setting Up Automatic Run Triggers (Pipeline):
+### Setting Up Automatic Run Triggers (VCS Trigger):
 
 1. Configure Triggers in Terraform Cloud:
 

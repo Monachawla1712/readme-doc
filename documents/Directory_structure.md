@@ -1,29 +1,29 @@
 
 - This repository contains the complete directory structure for our Terraform infrastructure code.
 
-       - **Top-Level Folders**: The repository is organized into two main folders: env and modules.
+  - **Top-Level Folders**: The repository is organized into two main folders: env and modules.
 
-       - **env Folder**: This folder contains the entire Infrastructure as Code (IaaC) for deploying the VPC, DigitalOcean Kubernetes Service (DOKS), and Kubernetes addons. It includes the modules that reference resources from the modules folder.
+  - **env Folder**: This folder contains the entire Infrastructure as Code (IaaC) for deploying the VPC, DigitalOcean Kubernetes Service (DOKS), and Kubernetes addons. It includes the modules that reference resources from the modules folder.
 
-       - **modules Folder**: This folder contains the code for creating various resources (DOKS, DOKS addons, Terraform state, and VPC) that are called within the env folder.
-
-       
-       -  **env Folder Structure**:
-
-              1. 01-network: This folder contains the code for creating the VPC network and the gateway droplet.
-
-              2. 02-dev: This folder is dedicated to creating the development environment.
-
-              3. 03-prod: This folder is dedicated to creating the production environment.
+   - **modules Folder**: This folder contains the code for creating various resources (DOKS, DOKS addons, Terraform state, and VPC) that are called within the env folder.
 
        
-       - **modules Folder Structure** :
+   -  **env Folder Structure**:
 
-              1. doks - Contains all necessary resources for creating the DOKS cluster, node pools, as well as respective variables, versions, and outputs.
+        1. 01-network: This folder contains the code for creating the VPC network and the gateway droplet.
+
+        2. 02-dev: This folder is dedicated to creating the development environment.
+
+        3. 03-prod: This folder is dedicated to creating the production environment.
+
+       
+  - **modules Folder Structure** :
+
+       1. doks - Contains all necessary resources for creating the DOKS cluster, node pools, as well as respective variables, versions, and outputs.
               
-              2. doks-bootstrap - Contains all necessary resources for creating addons like cert-manager, ingress-nginx controller, DigitalOcean registry integration, static-route-operator, and monitoring (Prometheus, Grafana, Loki, and Mimir).
+       2. doks-bootstrap - Contains all necessary resources for creating addons like cert-manager, ingress-nginx controller, DigitalOcean registry integration, static-route-operator, and monitoring (Prometheus, Grafana, Loki, and Mimir).
 
-              3. vpc - Contains resources for creating the VPC network and gateway droplet.
+       3. vpc - Contains resources for creating the VPC network and gateway droplet.
        
 ##  Directory Structure
 ### Major Folders 
